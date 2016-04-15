@@ -9,7 +9,7 @@ import api.Transformation;
 
 public class StringList {
 
-	private static ArrayList<java.lang.String> sList;
+	private ArrayList<java.lang.String> sList;
 	
 	public StringList()
 	{
@@ -20,22 +20,22 @@ public class StringList {
 	{
 		ArrayList<java.lang.String> temp = new ArrayList<java.lang.String>();
 		int i = 0;
-		for(i = 0; i < strings.length - 1; i ++)
+		for(i = 0; i < strings.length ; i ++)
 		{
 			//System.out.println(strings[i]);
 			temp.add(strings[i]);
 		}
-		sList = temp;
+		this.sList = temp;
 	}
 	
 	public StringList(java.util.ArrayList<java.lang.String> strings)
 	{
-		sList = strings;
+		this.sList = strings;
 	}
 	
 	public void append(java.lang.String s)
 	{
-		sList.add(s);
+		this.sList.add(s);
 	}
 	
 	
@@ -44,16 +44,20 @@ public class StringList {
 	{
 		ArrayList<java.lang.String> temp = new ArrayList<java.lang.String>() ;
 		int i = 0;
-		for(i = 0; i < sList.size() - 1; i ++)
+		for(i = 0; i < sList.size() ; i ++)
 		{
+			//System.out.println(sList.toString());
+			//
 			if(selector.select(sList.get(i)))
 			{
-				//System.out.println(i);
+				//System.out.println(sList.get(i));
 				temp.add(sList.get(i));
 			}
 		}
+		//System.out.println(temp.get(1));
 		StringList out = new StringList(temp);
 		
+		//System.out.println(temp.toString());
 		return out;
 		
 	}
@@ -61,17 +65,17 @@ public class StringList {
 	
 	public java.lang.String get(int index)
 	{
-		return sList.get(index);
+		return this.sList.get(index);
 	}
 	
 	public StringList map(Transformation transform)
 	{
 		ArrayList<java.lang.String> temp = new ArrayList<java.lang.String>() ;
 		int i = 0;
-		for(i = 0; i < sList.size() - 1; i ++)
+		for(i = 0; i < this.sList.size() ; i ++)
 		{
-			//System.out.println(sList.size());
-			temp.add(transform.apply(sList.get(i)));
+			//System.out.println(sList.toString());
+			temp.add(transform.apply(this.sList.get(i)));
 		}
 		
 		StringList out = new StringList(temp);
@@ -86,7 +90,8 @@ public class StringList {
 		for(i = 0; i < sList.size() - 1; i ++)
 		{
 			//System.out.println(i);
-			combiner.combine(temp, sList.get(i));
+			System.out.println();
+			temp = combiner.combine(temp, sList.get(i));
 		}
 		
 		
@@ -96,11 +101,13 @@ public class StringList {
 	
 	public int reduce(IntCombiner combiner, int initialValue)
 	{
+		//System.out.println(initialValue);
 		int temp = initialValue;
 		int i = 0;
 		for(i = 0; i < sList.size() - 1; i ++)
 		{
-			combiner.combine(temp, sList.get(i));
+			//System.out.println(temp);
+			temp = combiner.combine(temp, sList.get(i));
 		}
 		
 		
@@ -117,10 +124,10 @@ public class StringList {
 	{
 		java.lang.String temp = "[";
 		int i = 0;
-		for(i = 0; i < sList.size() - 1; i ++)
+		for(i = 0; i < sList.size() ; i ++)
 		{
 			temp += sList.get(i);
-			if(i == sList.size() - 2)
+			if(i == sList.size() - 1)
 			{
 				temp += "]";
 			}else

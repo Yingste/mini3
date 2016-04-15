@@ -19,7 +19,7 @@ public class StringListTest
     // (see below for Reverser implementation)
     Transformation t = new Reverser();
     String reversed = t.apply("banana");
-    System.out.println(reversed);
+    //System.out.println(reversed);
 
     String[] arr = {"So", "long", "and", "thanks", "for", "all", "the", "fish"};
     StringList sl = new StringList(arr);   
@@ -27,28 +27,26 @@ public class StringListTest
     // reverse all strings in the string list
     // - prints [os, gnol, dna, sknaht, rof, lla, eht, hsif]
     StringList result = sl.map(new Reverser());
-    System.out.println(result); 
+    //System.out.println(result); 
     
     // length of longest string
     // - prints 6
-    System.out.println(sl.reduce(new MaxLengthFinder(), 0));  
+    //System.out.println(sl.reduce(new MaxLengthFinder(), 0));  
     
     // longest string
     // - prints "thanks"
-    System.out.println(sl.reduce(new MaxFinder(), ""));
+    //System.out.println(sl.reduce(new MaxFinder(), ""));
     
     // strings that start with the letter f
     // - prints [for, fish]
+    
     result = sl.filter(new StartingLetterSelector("f"));
-    System.out.println(result); 
+    //System.out.println(result); 
     
     // since map() and filter() return another StringList, we can 
     // "chain" operations together.
     // - here we find the reverse of the longest word starting with 'f', prints "hsif"
-    System.out.println(sl
-        .filter(new StartingLetterSelector("f"))
-        .map(new Reverser())
-        .reduce(new MaxFinder(), ""));
+    //System.out.println(sl.filter(new StartingLetterSelector("f")).map(new Reverser()).reduce(new MaxFinder(), ""));
     
     System.out.println();
     
@@ -72,34 +70,34 @@ public class StringListTest
     StringList noCommentLines = programList.filter(new NonCommentLineSelector());
     for (int i = 0; i < noCommentLines.size(); i += 1)
     {
-      System.out.println(noCommentLines.get(i));
+      //System.out.println(noCommentLines.get(i));
     }
-    System.out.println();
+    //System.out.println();
     
     // filter out lines that are comments AND remove the end-of-line comments
     StringList noComments = programList.filter(new NonCommentLineSelector()).map(new CommentRemover());
     for (int i = 0; i < noComments.size(); i += 1)
     {
-      System.out.println(noComments.get(i));
+      //System.out.println(noComments.get(i));
     }
-    System.out.println();
+    //System.out.println();
 
     // add line numbers
     StringList numbered = programList.map(new LineNumberer());
     for (int i = 0; i < numbered.size(); i += 1)
     {
-      System.out.println(numbered.get(i));
+      //System.out.println(numbered.get(i));
     }
-    System.out.println();
+    //System.out.println();
 
     // count lines of code
     int locCount = programList.reduce(new LocCounter(), 0);
-    System.out.println("Lines of code: " + locCount);
-    System.out.println();
+    //System.out.println("Lines of code: " + locCount);
+   // System.out.println();
     
     // collect characters used
     String letters = sl.reduce(new LetterCollector(), "");
-    System.out.println(letters);
+    //System.out.println(letters);
   }
 }
 

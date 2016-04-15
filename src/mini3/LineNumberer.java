@@ -6,7 +6,7 @@ public class LineNumberer implements api.Transformation{
 	
 	
 	
-	
+	private int count;
 	public LineNumberer()
 	{
 		
@@ -16,7 +16,11 @@ public class LineNumberer implements api.Transformation{
 	
 	public java.lang.String apply(java.lang.String s)
 	{
-		return s;
+		
+		//System.out.println(count);
+		count ++;
+		//System.out.println(s.format("%-5d", 10));
+		return s.format("%-5d", count) + s;
 		
 	}
 	

@@ -16,8 +16,9 @@ public class NonCommentLineSelector implements api.Selector{
 		s = s.trim();
 		if(s.length() >= 2)
 		{
-			if(s.charAt(0) == '/' && s.charAt(1) == '/')
+			if(s.startsWith("//"))
 			{
+				//System.out.println(s);
 				return false;
 			}
 		}
