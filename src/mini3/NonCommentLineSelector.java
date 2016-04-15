@@ -12,7 +12,17 @@ public class NonCommentLineSelector {
 	
 	public boolean select(java.lang.String s)
 	{
-		return false;
+		
+		s = s.trim();
+		if(s.length() >= 2)
+		{
+			if(s.charAt(0) == '/' && s.charAt(1) == '/')
+			{
+				return false;
+			}
+		}
+		
+		return true;
 		
 	}
 	
