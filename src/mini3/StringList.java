@@ -71,28 +71,56 @@ public class StringList {
 	
 	public java.lang.String reduce(Combiner combiner, java.lang.String initialValue)
 	{
+		java.lang.String temp = initialValue;
+		int i = 0;
+		for(i = 0; i < sList.size() - 1; i ++)
+		{
+			combiner.combine(temp, sList.get(i));
+		}
 		
 		
-		
-		return null;
+		return temp;
 	}
 	
 	
 	public int reduce(IntCombiner combiner, int initialValue)
 	{
+		int temp = initialValue;
+		int i = 0;
+		for(i = 0; i < sList.size() - 1; i ++)
+		{
+			combiner.combine(temp, sList.get(i));
+		}
 		
-		return 0;
+		
+		return temp;
 	}
 	
-	public static int size()
+	public int size()
 	{
-		return 0;
+		return sList.size();
 	}
 	
 	
 	public java.lang.String toString()
 	{
-		return "";
+		java.lang.String temp = "[";
+		int i = 0;
+		for(i = 0; i < sList.size() - 1; i ++)
+		{
+			temp += sList.get(i);
+			if(i == sList.size() - 2)
+			{
+				temp += "]";
+			}else
+			{
+				temp += ", ";
+			}
+		}
+		
+		
+		
+		return temp;
 	}
 	
 	
