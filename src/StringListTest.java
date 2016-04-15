@@ -67,7 +67,7 @@ public class StringListTest
       ""
     };    
     StringList programList = new StringList(test2);
-    
+   
     // filter out all the lines that are comments
     StringList noCommentLines = programList.filter(new NonCommentLineSelector());
     for (int i = 0; i < noCommentLines.size(); i += 1)

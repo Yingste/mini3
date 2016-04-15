@@ -1,6 +1,6 @@
 package mini3;
 
-public class CommentRemover {
+public class CommentRemover implements api.Transformation{
 
 	
 	
@@ -13,7 +13,13 @@ public class CommentRemover {
 	
 	public java.lang.String apply(java.lang.String s)
 	{
-		return s;
+		java.lang.String temp = "";
+		if(s.contains("//"))
+		{
+			temp = s.substring(0, s.indexOf("//"));
+		}
+		
+		return temp;
 		
 	}
 	

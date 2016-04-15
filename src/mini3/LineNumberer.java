@@ -1,6 +1,6 @@
 package mini3;
 
-public class LineNumberer {
+public class LineNumberer implements api.Transformation{
 
 	
 	

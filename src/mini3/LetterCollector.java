@@ -1,6 +1,6 @@
 package mini3;
 
-public class LetterCollector {
+public class LetterCollector implements api.Combiner{
 
 	
 	
@@ -14,6 +14,11 @@ public class LetterCollector {
 	
 	public java.lang.String combine(java.lang.String first, java.lang.String second)
 	{
+		
+		
+		
+		
+		
 		return second;
 		
 	}

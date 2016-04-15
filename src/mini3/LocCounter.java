@@ -1,6 +1,6 @@
 package mini3;
 
-public class LocCounter {
+public class LocCounter implements api.IntCombiner{
 
 	
 	

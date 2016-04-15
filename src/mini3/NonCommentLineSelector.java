@@ -1,6 +1,6 @@
 package mini3;
 
-public class NonCommentLineSelector {
+public class NonCommentLineSelector implements api.Selector{
 
 	
 	
