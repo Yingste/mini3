@@ -10,10 +10,11 @@ import api.Transformation;
 public class StringList {
 
 	private ArrayList<java.lang.String> sList;
-	
+	private int size = 0;
 	public StringList()
 	{
-		
+		ArrayList<java.lang.String> temp = new ArrayList<java.lang.String>();
+		this.sList = temp;
 	}
 	
 	public StringList(java.lang.String[] strings)
@@ -26,16 +27,35 @@ public class StringList {
 			temp.add(strings[i]);
 		}
 		this.sList = temp;
+		size = 1;
 	}
 	
 	public StringList(java.util.ArrayList<java.lang.String> strings)
 	{
+		size = 1;
 		this.sList = strings;
 	}
 	
 	public void append(java.lang.String s)
 	{
-		this.sList.add(s);
+		System.out.println(s);
+		size = 1;
+		if(s != null)
+		{
+			if(!sList.isEmpty())
+			{
+				sList.add(s);
+				
+			}else
+			{
+				java.lang.String[] t = null ;
+				t[0] = s;
+				ArrayList<java.lang.String> temp = new ArrayList<java.lang.String>();
+				sList = temp;
+			}
+		}
+		
+		
 	}
 	
 	
@@ -116,7 +136,11 @@ public class StringList {
 	
 	public int size()
 	{
-		return sList.size();
+		if(size != 0)
+		{
+			return sList.size();
+		}
+		return 0;
 	}
 	
 	
